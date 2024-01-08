@@ -1,0 +1,23 @@
+.button-undo {
+  height: 36px;
+  background-color: #601cd7;
+  border-radius: 1rem;
+  outline: none;
+  color: white;
+  border: none;
+}
+
+.button-restart {
+  height: 36px;
+  background-color: rgb(226, 57, 57);
+  border-radius: 1rem;
+  outline: none;
+  color: white;
+  border: none;
+}
+
+.buttons {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}

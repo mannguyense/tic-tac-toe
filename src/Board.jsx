@@ -1,28 +1,17 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import "./Board.css";
 import Square from "./Square";
 
-export default function Board() {
-  const [isXTurn, setIsXTurn] = useState(true);
-  const [squares, setSquares] = useState(Array(3).fill(Array(3).fill("")));
+export default function Board({ isXTurn, squares, onPlay }) {
   const onSquareClick = (row, column) => {
     if (squares[row][column] || findWinner()) {
       return;
     }
     const value = isXTurn ? "X" : "O";
-    setSquares((prevSquares) => {
-      // TODO: Introduce students why we should return a new array instead of mutating the existing array
-      const newSquares = prevSquares.map((s, r) =>
-        r === row ? s.map((val, col) => (col === column ? value : val)) : s
-      );
-
-      return newSquares;
-    });
-    setIsXTurn((prevIsXTurn) => !prevIsXTurn);
-  };
-  const reset = () => {
-    setSquares(Array(3).fill(Array(3).fill("")));
-    setIsXTurn(true);
+    const newSquares = squares.map((s, r) =>
+      r === row ? s.map((val, col) => (col === column ? value : val)) : s
+    );
+    onPlay(newSquares);
   };
 
   const findWinner = () => {
@@ -69,8 +58,11 @@ export default function Board() {
 
   return (
     <>
-      {winner && <h1>Winner is {winner}</h1>}
-      <button onClick={reset}>Reset</button>
+      {winner && (
+        <div className="title">
+          <h1>Winner is {winner}</h1>
+        </div>
+      )}
       <div className="board">
         {squares.map((row, rowIdx) => {
           return (

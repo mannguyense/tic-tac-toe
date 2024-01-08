@@ -1,9 +1,27 @@
 .board {
   width: fit-content;
   margin: 0 auto;
+  padding: 0.5rem;
+  border: 1px dashed white;
+  border-radius: 1rem;
 }
 
 .board-row {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+.board-row button {
+  width: 128px;
+  height: 128px;
+  border: 1px dashed white;
+  background-color: #601cd7;
+  cursor: pointer;
+  font-size: xx-large;
+  color: white
+}
+
+.title {
+  text-align: center;
+  font-size: xx-large;
 }
