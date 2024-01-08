@@ -1,0 +1,9 @@
+.board {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.board-row {
+    display: flex;
+    align-items: center;
+}
